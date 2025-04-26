@@ -17,7 +17,7 @@ ADD . /opt/OpenDDS
 
 ARG ACE_CONFIG_OPTION="--doc-group"
 RUN cd /opt/OpenDDS && \
-    ./configure --prefix=/usr/local --security ${ACE_CONFIG_OPTION} && \
+    ./configure --prefix=/usr/local/opendds --static --security ${ACE_CONFIG_OPTION} && \
     ./tools/scripts/show_build_config.pl && \
     make && \
     make install && \
@@ -25,9 +25,9 @@ RUN cd /opt/OpenDDS && \
     . /opt/OpenDDS/setenv.sh && \
     cp -a ${MPC_ROOT} /usr/local/share/MPC
 
-ENV ACE_ROOT=/usr/local/share/ace \
-    TAO_ROOT=/usr/local/share/tao \
-    DDS_ROOT=/usr/local/share/dds \
-    MPC_ROOT=/usr/local/share/MPC
+ENV ACE_ROOT=/usr/local/opendds/share/ace \
+    TAO_ROOT=/usr/local/opendds/share/tao \
+    DDS_ROOT=/usr/local/opendds/share/dds \
+    MPC_ROOT=/usr/local/opendds/share/MPC
 
 WORKDIR /opt/workspace
