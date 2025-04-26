@@ -2,7 +2,7 @@ name: Opendds_arm64
 on:
   workflow_dispatch:
 jobs:
-  build-and-push-docker:
+  build-docker:
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
