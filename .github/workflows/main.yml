@@ -16,5 +16,6 @@ jobs:
         
         with:
           context: .
+          file: .Dockerfile
           tags: kittyhapp/opendds:latest,kittyhapp/opendds:${{ github.run_number }}
           platforms: linux/amd64,linux/arm64
